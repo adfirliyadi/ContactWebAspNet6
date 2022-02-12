@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace ContactWebModels
 {
@@ -25,16 +20,19 @@ namespace ContactWebModels
         [Display(Name = "Email Address")]
         [Required(ErrorMessage = "Email is required")]
         [StringLength(ContactManagerConstants.MAX_EMAIL_LENGTH)]
+        [EmailAddress(ErrorMessage = "Invalid email address")]
         public string Email { get; set; }
 
         [Display(Name = "Mobile Phone")]
         [Required(ErrorMessage = "Mobile phone is required")]
         [StringLength(ContactManagerConstants.MAX_PHONE_LENGTH)]
+        [Phone(ErrorMessage = "Invalid phone number")]
         public string PhonePrimary { get; set; }
 
         [Display(Name = "Home/Office Phone")]
         [Required(ErrorMessage = "Phone number is required")]
         [StringLength(ContactManagerConstants.MAX_PHONE_LENGTH)]
+        [Phone(ErrorMessage = "Invalid phone number")]
         public string PhoneSecondary { get; set; }
 
         [DataType(DataType.Date)]
